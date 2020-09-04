@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nordy.api.Data;
 
-namespace Nordy.api.Migrations
+namespace Nordy.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200830171159_fix")]
-    partial class fix
+    [Migration("20200903172724_UserAuth")]
+    partial class UserAuth
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

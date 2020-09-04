@@ -1,6 +1,6 @@
 using System;
 
-namespace Nordy.api
+namespace Nordy.API
 {
     public class WeatherForecast
     {

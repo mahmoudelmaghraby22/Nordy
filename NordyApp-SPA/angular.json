@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "NordyApp-SPA"
+    }
+  },
+  "defaultProject": "NordyApp-SPA",
+  "cli": {
+    "analytics": "90fb3652-ecdd-464d-8cc5-0833c0caceda"
+  }
 }
