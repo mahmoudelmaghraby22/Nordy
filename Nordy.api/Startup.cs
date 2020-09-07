@@ -20,6 +20,8 @@ using Nordy.api.Data;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Nordy.API.Helpers;
+using Nordy.API.Data;
+using AutoMapper;
 
 namespace Nordy.API
 {
@@ -37,9 +39,14 @@ namespace Nordy.API
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddAutoMapper(typeof(DatingRepository).Assembly);
             services.AddCors();
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+            
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IDatingRepository, DatingRepository>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => 
