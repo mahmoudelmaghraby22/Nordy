@@ -45,7 +45,7 @@ namespace Nordy.API.Migrations
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "KnowenAs",
+                name: "KnownAs",
                 table: "Users",
                 nullable: true);
 
@@ -123,7 +123,7 @@ namespace Nordy.API.Migrations
                 table: "Users");
 
             migrationBuilder.DropColumn(
-                name: "KnowenAs",
+                name: "KnownAs",
                 table: "Users");
 
             migrationBuilder.DropColumn(
