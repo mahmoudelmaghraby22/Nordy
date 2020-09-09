@@ -23,8 +23,15 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { ListsComponent } from './lists/lists.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver'
+import { PerventUnsavedChanges } from './_guards/pervent-unsaved-changes.guard'
+import { JwtModule } from '@auth0/angular-jwt';
 
 
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 @NgModule({
   declarations: [					
     AppComponent,
@@ -36,6 +43,7 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
       ListsComponent,
       MemberCardComponent,
       MemberDetailComponent,
+      MemberEditComponent,
    ],
   imports: [
     BrowserModule,
@@ -45,14 +53,23 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     TabsModule.forRoot(),
-    NgxGalleryModule
+    NgxGalleryModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:5000'],
+        disallowedRoutes: ['localhost:5000/api/auth']
+      }
+    })
   ],
   providers: [
     AuthService,
     UserService,
     ErrorInterceptorProvider,
     MemberDetailResolver,
-    MemberListResolver
+    MemberListResolver,
+    MemberEditResolver,
+    PerventUnsavedChanges
   ],
   bootstrap: [AppComponent]
 })
