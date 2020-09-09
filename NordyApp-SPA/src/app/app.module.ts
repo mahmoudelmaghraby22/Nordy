@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { UserService } from './_service/user.service';
 import { MemberDetailResolver} from './_resolvers/member-details.resolver'
 import { MemberListResolver } from './_resolvers/member-list.resolver'
+import { NgxGalleryModule } from '@kolkov/ngx-gallery'
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -22,7 +23,6 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { ListsComponent } from './lists/lists.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
-import { from } from 'rxjs';
 
 
 @NgModule({
@@ -44,7 +44,8 @@ import { from } from 'rxjs';
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    NgxGalleryModule
   ],
   providers: [
     AuthService,
