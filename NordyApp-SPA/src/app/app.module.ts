@@ -27,6 +27,8 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver'
 import { PerventUnsavedChanges } from './_guards/pervent-unsaved-changes.guard'
 import { JwtModule } from '@auth0/angular-jwt';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 export function tokenGetter() {
@@ -44,6 +46,7 @@ export function tokenGetter() {
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
+      PhotoEditorComponent,
    ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ export function tokenGetter() {
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     TabsModule.forRoot(),
+    FileUploadModule,
     NgxGalleryModule,
     JwtModule.forRoot({
       config: {

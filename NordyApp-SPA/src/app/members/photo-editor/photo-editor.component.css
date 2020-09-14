@@ -1,0 +1,13 @@
+img.img-thumbnail {
+    width: 100px;
+    height: 100px !important;
+    margin-bottom: 2px;
+}
+
+.nv-file-over {
+    border: dotted 3px rebeccapurple;
+}
+
+input[type=file] {
+    color: transparent;
+}
