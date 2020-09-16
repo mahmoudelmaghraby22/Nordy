@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { UserService } from './_service/user.service';
@@ -29,7 +29,8 @@ import { PerventUnsavedChanges } from './_guards/pervent-unsaved-changes.guard'
 import { JwtModule } from '@auth0/angular-jwt';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { DateAgoPipe } from './pipes/date-ago.pipe'
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -47,6 +48,7 @@ export function tokenGetter() {
       MemberDetailComponent,
       MemberEditComponent,
       PhotoEditorComponent,
+      DateAgoPipe,
    ],
   imports: [
     BrowserModule,
@@ -56,6 +58,8 @@ export function tokenGetter() {
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     TabsModule.forRoot(),
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
     FileUploadModule,
     NgxGalleryModule,
     JwtModule.forRoot({

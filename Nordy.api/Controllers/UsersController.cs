@@ -6,9 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Nordy.API.Data;
 using Nordy.API.Dtos;
 using System;
+using Microsoft.AspNetCore.Authorization;
+using Nordy.API.Helpers;
 
 namespace Nordy.API.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
@@ -29,7 +33,7 @@ namespace Nordy.API.Controllers
             return Ok(usersToReturn);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name ="GetUser")]
         public async Task<IActionResult> GetUser(int id)
         {
             var user = await _repo.GetUser(id);

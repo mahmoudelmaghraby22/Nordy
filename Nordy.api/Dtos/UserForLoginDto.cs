@@ -1,4 +1,4 @@
-namespace Nordy.api.Dtos
+namespace Nordy.API.Dtos
 {
     public class UserForLoginDto
     {
