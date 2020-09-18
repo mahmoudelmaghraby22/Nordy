@@ -30,7 +30,11 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { DateAgoPipe } from './pipes/date-ago.pipe'
+import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+
+
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -59,9 +63,11 @@ export function tokenGetter() {
     RouterModule.forRoot(appRoutes),
     TabsModule.forRoot(),
     ReactiveFormsModule,
+    ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
     FileUploadModule,
     NgxGalleryModule,
+    PaginationModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
