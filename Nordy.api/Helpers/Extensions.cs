@@ -1,4 +1,3 @@
-using System.Diagnostics.Contracts;
 using System;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Nordy.api.Models;
 
 namespace Nordy.API.Dtos
 {

@@ -1,7 +1,6 @@
-using System.Reflection;
 using System.Linq;
 using AutoMapper;
-using Nordy.api.Models;
+using Nordy.API.Models;
 using Nordy.API.Dtos;
 
 namespace Nordy.API.Helpers

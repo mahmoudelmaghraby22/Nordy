@@ -1,6 +1,6 @@
 using System;
 
-namespace Nordy.api.Models
+namespace Nordy.API.Models
 {
     public class Photo
     {

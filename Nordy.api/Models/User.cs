@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nordy.api.Models
+namespace Nordy.API.Models
 {
     public class User
     {
@@ -20,5 +20,7 @@ namespace Nordy.api.Models
         public string City { get; set; }
         public string Country { get; set; }
         public ICollection<Photo> Photos { get; set; }
+        public ICollection<Like> Likers { get; set; }
+        public ICollection<Like> Likees { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Nordy.api.Models;
+using Nordy.API.Models;
 using Nordy.API.Data;
 using Nordy.API.Dtos;
 using Nordy.API.Helpers;

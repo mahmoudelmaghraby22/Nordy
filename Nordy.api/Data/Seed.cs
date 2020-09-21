@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
-using Nordy.api.Data;
-using Nordy.api.Models;
+using Nordy.API.Models;
 
 namespace Nordy.API.Data
 {

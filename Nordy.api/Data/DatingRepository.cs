@@ -1,10 +1,7 @@
 using System;
-using System.Data.Common;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Nordy.api.Data;
-using Nordy.api.Models;
+using Nordy.API.Models;
 using System.Linq;
 using Nordy.API.Helpers;
 
@@ -25,6 +22,12 @@ namespace Nordy.API.Data
         public void Delete<T>(T entity) where T : class
         {
             _context.Remove(entity);
+        }
+
+        public async Task<Like> GetLike(int userId, int recipientId)
+        {
+            return await _context.Likes.FirstOrDefaultAsync(u =>
+                u.LikerId == userId && u.LikeeId == recipientId);
         }
 
         public async Task<Photo> GetMainPhotoForUser(int userId)

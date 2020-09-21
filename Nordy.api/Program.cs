@@ -1,16 +1,10 @@
-using System.Security.Cryptography;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Nordy.api.Data;
-using Microsoft.EntityFrameworkCore;
 using Nordy.API.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Nordy.API
 {

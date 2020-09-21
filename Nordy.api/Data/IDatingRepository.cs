@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nordy.api.Models;
 using Nordy.API.Helpers;
+using Nordy.API.Models;
 
 namespace Nordy.API.Data
 {
@@ -14,5 +13,6 @@ namespace Nordy.API.Data
          Task<User> GetUser(int id);
          Task<Photo> GetPhoto(int id);
          Task<Photo> GetMainPhotoForUser(int userId);
+         Task<Like> GetLike(int userId, int recipientId);
     }
 }

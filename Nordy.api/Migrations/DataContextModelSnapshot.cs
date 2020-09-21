@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Nordy.api.Data;
+using Nordy.API.Data;
 
 namespace Nordy.API.Migrations
 {
@@ -16,7 +16,22 @@ namespace Nordy.API.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.7");
 
-            modelBuilder.Entity("Nordy.api.Models.Photo", b =>
+            modelBuilder.Entity("Nordy.API.Models.Like", b =>
+                {
+                    b.Property<int>("LikerId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("LikeeId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("LikerId", "LikeeId");
+
+                    b.HasIndex("LikeeId");
+
+                    b.ToTable("Likes");
+                });
+
+            modelBuilder.Entity("Nordy.API.Models.Photo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,7 +62,7 @@ namespace Nordy.API.Migrations
                     b.ToTable("Photos");
                 });
 
-            modelBuilder.Entity("Nordy.api.Models.User", b =>
+            modelBuilder.Entity("Nordy.API.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -97,9 +112,24 @@ namespace Nordy.API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Nordy.api.Models.Photo", b =>
+            modelBuilder.Entity("Nordy.API.Models.Like", b =>
                 {
-                    b.HasOne("Nordy.api.Models.User", "User")
+                    b.HasOne("Nordy.API.Models.User", "Likee")
+                        .WithMany("Likers")
+                        .HasForeignKey("LikeeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Nordy.API.Models.User", "Liker")
+                        .WithMany("Likees")
+                        .HasForeignKey("LikerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Nordy.API.Models.Photo", b =>
+                {
+                    b.HasOne("Nordy.API.Models.User", "User")
                         .WithMany("Photos")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

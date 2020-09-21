@@ -33,7 +33,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-
+import { ListsResolver } from './_resolvers/lisets.resolver'
 
 
 export function tokenGetter() {
@@ -83,7 +83,8 @@ export function tokenGetter() {
     MemberDetailResolver,
     MemberListResolver,
     MemberEditResolver,
-    PerventUnsavedChanges
+    PerventUnsavedChanges,
+    ListsResolver
   ],
   bootstrap: [AppComponent]
 })

@@ -1,10 +1,8 @@
-using System.Security.Cryptography;
-using System;
 using System.Threading.Tasks;
-using Nordy.api.Models;
+using Nordy.API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Nordy.api.Data
+namespace Nordy.API.Data
 {
     public class AuthRepository : IAuthRepository
     {
