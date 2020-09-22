@@ -29,7 +29,7 @@ namespace Nordy.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-
+            services.AddControllers(options => options.SuppressAsyncSuffixInActionNames = false);
             services.AddAutoMapper(typeof(DatingRepository).Assembly);
             services.AddCors();
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));

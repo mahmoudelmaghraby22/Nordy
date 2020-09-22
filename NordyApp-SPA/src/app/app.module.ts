@@ -34,6 +34,8 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { ListsResolver } from './_resolvers/lisets.resolver'
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component'
 
 
 export function tokenGetter() {
@@ -53,6 +55,7 @@ export function tokenGetter() {
       MemberEditComponent,
       PhotoEditorComponent,
       DateAgoPipe,
+      MemberMessagesComponent,
    ],
   imports: [
     BrowserModule,
@@ -84,7 +87,8 @@ export function tokenGetter() {
     MemberListResolver,
     MemberEditResolver,
     PerventUnsavedChanges,
-    ListsResolver
+    ListsResolver,
+    MessagesResolver
   ],
   bootstrap: [AppComponent]
 })
