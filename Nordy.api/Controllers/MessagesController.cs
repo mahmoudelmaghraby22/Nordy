@@ -95,7 +95,7 @@ namespace Nordy.API.Controllers
             if (await _repo.SaveAll())
             {
                 var messageToReturn = _mapper.Map<MessageToReturnDto>(message);
-                return CreatedAtRoute("GetMessage", new {id = message.Id}, messageToReturn);
+                return CreatedAtRoute("GetMessage", new {id = message.Id, userid =  int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value)}, messageToReturn);
             }
                 
             throw new Exception("Creating the message filed on save");

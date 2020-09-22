@@ -40,7 +40,7 @@ namespace Nordy.API.Controllers
         }
 
         [HttpGet("{id}", Name ="GetPhoto")]
-        public async Task<IActionResult>GetPhoto(int id)
+        public async Task<IActionResult>GetPhoto(int id, int userId)
         {
             var photoFromRepo = await _repo.GetPhoto(id);
 
